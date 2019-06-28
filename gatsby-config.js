@@ -1,3 +1,5 @@
+const path = require("path")
+
 module.exports = {
   siteMetadata: {
     title: `dori`,
@@ -7,9 +9,17 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
-      resolve: "gatsby-plugin-netlify-cms",
+      resolve: `gatsby-plugin-alias-imports`,
       options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
+        alias: {
+          components: path.resolve(__dirname, "src/components"),
+          context: path.resolve(__dirname, "src/context"),
+          helpers: path.resolve(__dirname, "src/helpers"),
+          hooks: path.resolve(__dirname, "src/hooks"),
+          pages: path.resolve(__dirname, "src/pages"),
+          images: path.resolve(__dirname, "src/images"),
+        },
+        extensions: [],
       },
     },
     {
@@ -76,6 +86,12 @@ module.exports = {
     // },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-plugin-netlify-cms",
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
     `gatsby-plugin-netlify`,
   ],
 }

@@ -41,18 +41,3 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 }
-
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      alias: {
-        components: path.resolve(__dirname, "src/components"),
-        context: path.resolve(__dirname, "src/context"),
-        helpers: path.resolve(__dirname, "src/helpers"),
-        hooks: path.resolve(__dirname, "src/hooks"),
-        pages: path.resolve(__dirname, "src/pages"),
-        images: path.resolve(__dirname, "src/images"),
-      },
-    },
-  })
-}
