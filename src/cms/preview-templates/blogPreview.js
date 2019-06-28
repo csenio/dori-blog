@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { PostTemplate } from "components/postTemplate"
+import { PostTemplate } from "../../components/postTemplate"
 
 const AboutPagePreview = ({ entry, widgetFor }) => (
   <PostTemplate

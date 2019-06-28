@@ -1,12 +1,17 @@
 module.exports = {
   siteMetadata: {
-    title: `jsco.dev`,
+    title: `dori`,
     description: `Personal website of Jesco Wüster.`,
     author: `@jescowuester`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: "gatsby-plugin-netlify-cms",
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -19,13 +24,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `jsco's site`,
-        short_name: `jsco.dev`,
+        name: `dori's site`,
+        short_name: `dori`,
         start_url: `/`,
-        background_color: `#353b44`,
-        theme_color: `#353b44`,
+        background_color: `#40a798`,
+        theme_color: `#40a798`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`,
+        icon: `src/images/seedling.svg`,
       },
     },
     {

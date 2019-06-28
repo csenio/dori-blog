@@ -1,13 +1,10 @@
 export default {
   name: "default",
   colors: {
-    brand: "#231829",
-    yellow: "#F6C300",
-    yellowLighter: "#ffdb54",
-    red: "#f44248",
-    beige: "rgba(246, 195, 0, 0.1)",
-    white: "#fff",
-    whiteFake: "#FAFAFC",
+    green: "#40a798",
+    greenDark: "#006e60",
+    white: "#f1f1f1",
+    beige: "#f5e1da",
     greyLight: "#EDEDEF",
     grey: "#B5B2BB",
     black: "#1F1424",
