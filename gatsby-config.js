@@ -88,6 +88,9 @@ module.exports = {
         repositoryName: `dori-blog`,
         accessToken: `${process.env.API_KEY}`,
         linkResolver: ({ node, key, value }) => post => `/blog/${post.uid}`,
+        shouldNormalizeImage: ({ node, key, value }) => {
+          return true
+        },
       },
     },
     `gatsby-plugin-styled-components`,
