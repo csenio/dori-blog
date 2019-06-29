@@ -1,5 +1,9 @@
 const path = require("path")
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `dori`,
@@ -53,10 +57,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `posts`,
-        path: `${__dirname}/src/posts/`,
-        /* eslint-disable */
-        ignore: [`**/\.*`], // ignore files starting with a dot
+        name: `templates`,
+        path: `${__dirname}/src/templates/`,
       },
     },
     {
@@ -80,18 +82,16 @@ module.exports = {
         trackingId: "UA-136852402-2",
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-create-client-paths`,
-    //   options: { prefixes: [`/blog/*`] },
-    // },
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-offline`,
     {
-      resolve: "gatsby-plugin-netlify-cms",
+      resolve: `gatsby-source-prismic`,
       options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
+        repositoryName: `dori-blog`,
+        accessToken: `${process.env.API_KEY}`,
+        linkResolver: ({ node, key, value }) => post => `/blog/${post.uid}`,
       },
     },
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
   ],
 }

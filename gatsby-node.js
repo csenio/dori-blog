@@ -10,34 +10,31 @@ const slugify = (text = "") =>
     .replace(/^-+/, "") // Trim - from start of text
     .replace(/-+$/, "") // Trim - from end of text
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  return new Promise(resolve => {
-    graphql(`
-      {
-        allMarkdownRemark {
-          edges {
-            node {
-              frontmatter {
-                title
-              }
-            }
+
+  const pages = await graphql(`
+    {
+      allPrismicBlogPost {
+        edges {
+          node {
+            id
+            uid
           }
         }
       }
-    `).then(results => {
-      results.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        const slug = slugify(node.frontmatter.title)
+    }
+  `)
 
-        createPage({
-          path: `/blog/${slug}`,
-          component: path.resolve("./src/components/postTemplate.js"),
-          context: {
-            title: node.frontmatter.title,
-          },
-        })
-      })
-      resolve()
+  const template = path.resolve("src/templates/post.js")
+
+  pages.data.allPrismicBlogPost.edges.forEach(edge => {
+    createPage({
+      path: `/blog/${edge.node.uid}`,
+      component: template,
+      context: {
+        uid: edge.node.uid,
+      },
     })
   })
 }
