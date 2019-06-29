@@ -3,12 +3,9 @@ import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
 
-import LOGO from "images/seedling.svg"
-
 const HeaderStyles = styled.div`
   background: ${p => p.theme.colors.green};
-  margin-bottom: 20px;
-
+  height: 90px;
   h1,
   a {
     margin: 0;
@@ -31,7 +28,7 @@ const Header = () => (
       css={`
         margin: 0 auto;
         max-width: 960px;
-        padding: 1.45rem 1.08rem;
+        padding: 22px 16px;
       `}
     >
       <h1>
