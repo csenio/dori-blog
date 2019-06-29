@@ -10,11 +10,19 @@ const MarkdownContainer = styled.div`
   color: purple;
 `
 
-export const PostTemplate = ({ html, frontmatter }) => {
+export const PostTemplate = ({ html, frontmatter, isPreview }) => {
+  console.log("object", html, frontmatter)
+
+  if (!frontmatter) return null
+
   return (
     <>
       <h1>{frontmatter.title}</h1>
-      <MarkdownContainer dangerouslySetInnerHTML={{ __html: html }} />
+      {isPreview ? (
+        <MarkdownContainer>{html}</MarkdownContainer>
+      ) : (
+        <MarkdownContainer dangerouslySetInnerHTML={{ __html: html }} />
+      )}
     </>
   )
 }

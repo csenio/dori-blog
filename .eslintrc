@@ -27,7 +27,8 @@
     "babel/quotes": "off",
     "babel/camelcase": "off",
     "react/prop-types": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "react/jsx-pascal-case": "off"
   },
   "settings": {
     "import/resolver": {
