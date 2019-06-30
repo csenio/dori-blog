@@ -4,35 +4,41 @@ import React from "react"
 import styled from "styled-components"
 
 const HeaderStyles = styled.div`
-  background: ${p => p.theme.colors.green};
+  background: ${p => (p.isWhite ? p.theme.colors.white : p.theme.colors.green)};
   height: 90px;
-  h1,
+  h3,
   a {
     margin: 0;
     text-decoration: none;
-    color: #fff;
+    color: ${p => (p.isWhite ? p.theme.colors.black : p.theme.colors.white)};
+    transition: color 0.15s;
   }
+  h3 {
+    font-size: 35px;
+  }
+  transition: background 0.15s;
 `
 
 const Logo = styled.span`
   svg {
-    color: ${p => p.theme.colors.greenDark};
-    height: 40px;
-    font-size: 40px;
+    color: ${p =>
+      p.isWhite ? p.theme.colors.green : p.theme.colors.greenDark};
+    height: 35px;
+    font-size: 35px;
   }
 `
 
-const Header = () => (
-  <HeaderStyles>
+const Header = ({ isWhite }) => (
+  <HeaderStyles isWhite={isWhite}>
     <div
       css={`
         margin: 0 auto;
         max-width: 960px;
-        padding: 22px 16px;
+        padding: 25px 16px;
       `}
     >
-      <h1>
-        <Logo>
+      <h3>
+        <Logo isWhite={isWhite}>
           <svg
             aria-hidden="true"
             focusable="false"
@@ -49,7 +55,7 @@ const Header = () => (
           </svg>
         </Logo>
         <Link to="/">dori</Link>
-      </h1>
+      </h3>
     </div>
   </HeaderStyles>
 )

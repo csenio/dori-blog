@@ -27,7 +27,7 @@ const Footer = styled.div`
   }
 `
 
-const Layout = ({ children }) => {
+const Layout = ({ children, isWhite }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -40,7 +40,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header />
+      <Header isWhite={isWhite} />
       <Background>
         <Main>{children}</Main>
         <Footer>

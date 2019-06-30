@@ -9,7 +9,7 @@ const PostLink = styled(Link)`
   text-decoration: none;
   color: ${p => p.theme.colors.green};
   text-transform: capitalize;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   display: block;
 `
 
@@ -21,6 +21,9 @@ const post_archive_query = graphql`
           uid
           data {
             title {
+              text
+            }
+            subtitle {
               text
             }
           }
@@ -50,10 +53,12 @@ const Archive = () => {
             key={node.uid}
           >
             <PostLink to={`/blog/${node.uid}`}>{node.data.title.text}</PostLink>
-            <Text mb="10px" fontSize="14px" as="p">
+            <Text color="grey" mb="10px" fontSize="14px" as="p">
               {node.first_publication_date}
             </Text>
-            <Text as="p">A short teaser here</Text>
+            <Text fontSize="18px" as="p">
+              {node.data.subtitle.text}
+            </Text>
           </li>
         ))}
       </ul>

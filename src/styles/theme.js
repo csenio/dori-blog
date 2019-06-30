@@ -3,12 +3,12 @@ export default {
   colors: {
     green: "#40a798",
     greenDark: "#006e60",
-    white: "#f1f1f1",
+    white: "#fff",
     beige: "#f5e1da",
     beigeLight: "#fcede8",
     greyLight: "#EDEDEF",
     grey: "#B5B2BB",
-    black: "#1F1424",
+    black: "#3b394d",
     overlay: "rgba(0, 0, 0, 0.7)",
   },
   shadows: {
