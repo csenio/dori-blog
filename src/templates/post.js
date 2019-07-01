@@ -20,10 +20,19 @@ const Post = ({ data: { prismicBlogPost } }) => {
           fluid={data.head_image.localFile.childImageSharp.fluid}
         />
       )}
+      <Text fontWeight="600" my="20px" textAlign="center" as="h2">
+        {data.title.subtitle}
+      </Text>
       <div
         css="
       p{
         font-size: 20px;
+        line-height: 1.4;
+        margin-bottom: 1em;
+      }
+      h2{
+        font-size: 28px;
+        line-height: 2;
       }
       "
         dangerouslySetInnerHTML={{ __html: data.content.html }}

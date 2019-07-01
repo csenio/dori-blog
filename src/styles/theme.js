@@ -1,6 +1,7 @@
 export default {
   name: "default",
   colors: {
+    greenLight: "#61b8ab",
     green: "#40a798",
     greenDark: "#006e60",
     white: "#fff",

@@ -15,7 +15,7 @@ const Main = styled.main`
 `
 
 const Background = styled.div`
-  /* background: ${p => p.theme.colors.beigeLight}; */
+  /* background: ${p => p.theme.colors.black}; */
 `
 
 const Footer = styled.div`

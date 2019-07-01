@@ -4,8 +4,8 @@ import styled from "styled-components"
 import Text from "./text"
 
 const PostLink = styled(Link)`
-  font-size: 35px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: 600;
   text-decoration: none;
   color: ${p => p.theme.colors.green};
   text-transform: capitalize;
@@ -48,7 +48,7 @@ const Archive = () => {
           <li
             css="
             list-style-type: none;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
           "
             key={node.uid}
           >

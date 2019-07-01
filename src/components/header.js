@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
+import Flex from "./flex"
 
 const HeaderStyles = styled.div`
   background: ${p => (p.isWhite ? p.theme.colors.white : p.theme.colors.green)};
@@ -30,11 +31,14 @@ const Logo = styled.span`
 
 const Header = ({ isWhite }) => (
   <HeaderStyles isWhite={isWhite}>
-    <div
+    <Flex
       css={`
+        height: 100%;
         margin: 0 auto;
         max-width: 960px;
-        padding: 25px 16px;
+        padding: 0 16px;
+        align-items: center;
+        justify-content: space-between;
       `}
     >
       <h3>
@@ -42,8 +46,6 @@ const Header = ({ isWhite }) => (
           <svg
             aria-hidden="true"
             focusable="false"
-            data-prefix="fas"
-            data-icon="seedling"
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
@@ -56,7 +58,7 @@ const Header = ({ isWhite }) => (
         </Logo>
         <Link to="/">dori</Link>
       </h3>
-    </div>
+    </Flex>
   </HeaderStyles>
 )
 
